@@ -8,7 +8,7 @@ int main(int argc, char const *argv[])
 	mkfifo(Fifo_Server,0666);
 	char Msg[100];
 
-	while (true)
+	while (TRUE)
 	{
 		FD = open(Fifo_Server,O_WRONLY);
 		fgets(Msg,100,stdin);

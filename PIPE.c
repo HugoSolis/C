@@ -8,7 +8,7 @@
 int main(int argc, char const *argv[])
 {
 	printf("Starting server\n");
-	int FD;
+	int FDW,FDR;
 	char * Fifo_Server = "/pipes/server_pipe";
 	mkfifo(Fifo_Server,0666);
 	char Msg[100];
@@ -19,26 +19,26 @@ int main(int argc, char const *argv[])
 	{
 		if(PID == 0){
 			printf("F\n");
-		FD = open(Fifo_Server,O_WRONLY);
+		FDW = open(Fifo_Server,O_WRONLY);
 		fgets(Msg,100,stdin);
-		write(FD,&Msg,strlen(Msg)+1);
+		write(FDW,&Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
-		close(FD);		
+		close(FDW);		
 		exit(0);}
 
 		else{
 			sleep(1);
 			wait(0);
-			FD = open(Fifo_Server,O_RDONLY|O_NONBLOCK);
+			FDR = open(Fifo_Server,O_RDONLY|O_NONBLOCK);
 			printf("C\n");
 			//fgets(Msg,100,FD);
 			//ret=fscanf(FD,"%d",&value);
 			//printf("This is the parent. Received value %d from child on fifo \n", value);
-			value = read(FD,&Msg,sizeof(Msg));
+			value = read(FDR,&Msg,sizeof(Msg));
 			printf("%i",value);
 			printf("Message:\n %s\n",Msg);
 			//strcpy(Msg,"");
-			close(FD);
+			close(FDR);
 			if(strncmp(Msg, "EXIT",4) == 0)
 			{
 				printf("Abort process\n");

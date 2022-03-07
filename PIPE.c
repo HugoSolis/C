@@ -32,10 +32,10 @@ int main(int argc, char const *argv[])
 			wait(NULL);
 			printf("C\n");
 			FD = fopen(Fifo_Server,O_RDONLY);
-			//fgets(Msg,100,FD);
+			fgets(Msg,100,FD);
 			//ret=fscanf(FD,"%d",&value);
 			//printf("This is the parent. Received value %d from child on fifo \n", value);
-			read(FD,Msg,sizeof(Msg));
+			//read(FD,Msg,sizeof(Msg));
 			printf("Message:\n %s\n",Msg);
 			//strcpy(Msg,"");
 			fclose(FD);

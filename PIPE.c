@@ -31,7 +31,6 @@ int main(int argc, char const *argv[])
 			printf("Message:\n %s\n",Msg);
 			//strcpy(Msg,"");
 			close(FD);
-			fflush (stdout);
 			if(strncmp(Msg, "EXIT",4) == 0)
 			{
 				printf("Abort process\n");

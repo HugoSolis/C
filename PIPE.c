@@ -25,6 +25,7 @@ int main(int argc, char const *argv[])
 		//strcpy(Msg,"");
 		fprintf("Message:\n %s\n",Msg);
 		fclose(FD);
+		unlink(FD);
 		exit(0);}
 
 		else{

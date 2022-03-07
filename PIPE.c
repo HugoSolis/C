@@ -14,6 +14,7 @@ int main(int argc, char const *argv[])
 	char Msg[100];
 	//strcpy(Msg,"");
 	int PID = fork();
+	int ret,value;
 	while (1)
 	{
 		if(PID == 0){
@@ -32,11 +33,9 @@ int main(int argc, char const *argv[])
 			wait(NULL);
 			printf("C\n");
 			FD = open(Fifo_Server,O_RDONLY);
-			while( read(FD, &Msg,sizeof(Msg)) > 0 )
-    		{
-    		  printf("Child received: item %d\n", Msg);
-    		}
-			read(FD,Msg,sizeof(Msg));
+			ret=fscanf(FD,"%d",&value);
+			printf("This is the parent. Received value %d from child on fifo \n", value);
+			read(FD,&Msg,sizeof(Msg));
 			printf("Message:\n %s\n",Msg);
 			//strcpy(Msg,"");
 			close(FD);

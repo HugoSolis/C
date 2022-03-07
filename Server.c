@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
 	{
 		FD = open(Fifo_Server,O_WRONLY);
 		fgets(Msg,100,stdin);
-		write(FD,Msg,stlen(Msg)+1);
+		write(FD,Msg,strlen(Msg)+1);
 		close(FD);
 	}
 	return 0;

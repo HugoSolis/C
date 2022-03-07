@@ -15,11 +15,13 @@ int main(int argc, char const *argv[])
 	while (1)
 	{
 		if(PID == 0){
+			printf("F");
 		FD = open(Fifo_Server,O_WRONLY);
 		fgets(Msg,100,stdin);
 		write(FD,Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
-		close(FD);}
+		close(FD);
+		exit(0);}
 
 		else{
 			sleep(1);

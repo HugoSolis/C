@@ -25,13 +25,9 @@ int main(int argc, char const *argv[])
 		printf("Message:\n %s\n",Msg);
 		//strcpy(Msg,"");
 		close(FD);
-		if(strcmp(Msg, "EXIT") == 1)
+		if(strcmp(Msg, "EXIT") != 0)
 		{
 			printf("Abort process");
-			break;
-		}
-		else{
-			printf("My");
 			break;
 		}
 	}

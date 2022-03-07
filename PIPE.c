@@ -21,7 +21,7 @@ int main(int argc, char const *argv[])
 			printf("F\n");
 		FDW = fopen(Fifo_Server,"w");
 		fgets(Msg,100,stdin);
-		write(FDW,&Msg,strlen(Msg)+1);
+		write(FDW,Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
 		close(FDW);
 		unlink(FDW);		

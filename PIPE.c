@@ -16,7 +16,7 @@ int main(int argc, char const *argv[])
 	{
 		if(fork() == 1){
 			sleep(1);
-			printf("F");
+			wait(NULL);
 		FD = open(Fifo_Server,O_WRONLY);
 		fgets(Msg,100,stdin);
 		write(FD,Msg,strlen(Msg)+1);

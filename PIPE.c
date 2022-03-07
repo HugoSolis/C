@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
 			wait(NULL);
 			printf("C\n");
 			FD = open(Fifo_Server,O_RDONLY);
-			while( read(FD, Msg,sizeof(Msg)) > 0 )
+			while( read(FD, &Msg,sizeof(Msg)) > 0 )
     		{
     		  printf("Child received: item %d\n", Msg);
     		}

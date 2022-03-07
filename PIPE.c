@@ -11,10 +11,10 @@ int main(int argc, char const *argv[])
 	char * Fifo_Server = "/pipes/server_pipe";
 	mkfifo(Fifo_Server,0666);
 	char Msg[100];
-	fork();
+	int PID = fork();
 	while (1)
 	{
-		if(fork() == 1){
+		if(PID == 1){
 			sleep(1);
 			wait(NULL);
 		FD = open(Fifo_Server,O_WRONLY);
@@ -25,6 +25,7 @@ int main(int argc, char const *argv[])
 
 		else{
 			sleep(1);
+			wait(NULL);
 			printf("C");
 			FD = open(Fifo_Server,O_RDONLY);
 			read(FD,Msg,sizeof(Msg));

@@ -37,7 +37,6 @@ int main(int argc, char const *argv[])
 			//ret=fscanf(FD,"%d",&value);
 			//printf("This is the parent. Received value %d from child on fifo \n", value);
 			read(FD,Msg,sizeof(Msg));
-			fgets(Msg,100,FD);
 			printf("Message:\n %s\n",Msg);
 			//strcpy(Msg,"");
 			close(FD);

@@ -31,8 +31,8 @@ int main(int argc, char const *argv[])
 		else{
 			sleep(1);
 			wait(0);
-			printf("C\n");
 			FD = open(Fifo_Server,"r");
+			printf("C\n");
 			fgets(Msg,100,FD);
 			//ret=fscanf(FD,"%d",&value);
 			//printf("This is the parent. Received value %d from child on fifo \n", value);

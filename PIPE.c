@@ -12,11 +12,12 @@ int main(int argc, char const *argv[])
 	char * Fifo_Server = "/pipes/server_pipe";
 	mkfifo(Fifo_Server,0666);
 	char Msg[100];
+	strcpy(Msg,"");
 	int PID = fork();
 	while (1)
 	{
 		if(PID == 0){
-			printf("F");
+			printf("F\n");
 		FD = open(Fifo_Server,O_WRONLY);
 		fgets(Msg,100,stdin);
 		write(FD,Msg,strlen(Msg)+1);
@@ -27,7 +28,7 @@ int main(int argc, char const *argv[])
 		else{
 			sleep(1);
 			wait(NULL);
-			printf("C");
+			printf("C\n");
 			FD = open(Fifo_Server,O_RDONLY);
 			read(FD,Msg,sizeof(Msg));
 			printf("Message:\n %s\n",Msg);

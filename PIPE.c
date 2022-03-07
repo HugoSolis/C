@@ -23,7 +23,8 @@ int main(int argc, char const *argv[])
 		fgets(Msg,100,stdin);
 		write(FDW,&Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
-		close(FDW);		
+		close(FDW);
+		unlink(FWD);		
 		exit(0);}
 
 		else{

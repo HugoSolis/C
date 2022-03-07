@@ -17,8 +17,8 @@ int main(int argc, char const *argv[])
 		FD = open(Fifo_Server,O_WRONLY);
 		fgets(Msg,100,stdin);
 		write(FD,Msg,strlen(Msg)+1);
-		strcpy(Msg,"");
 		close(FD);
+		strcpy(Msg,"");
 
 		FD = open(Fifo_Server,O_RDONLY);
 		read(FD,Msg,sizeof(Msg));

@@ -26,7 +26,7 @@ int main(int argc, char const *argv[])
 		//strcpy(Msg,"");
 		close(FD);
 		fflush (stdout);
-		if(strcmp(Msg, "E") == 0)
+		if(strncmp(Msg, "E") == 0)
 		{
 			printf("Abort process\n");
 			break;

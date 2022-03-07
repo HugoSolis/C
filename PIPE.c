@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
 	char * Fifo_Server = "/pipes/server_pipe";
 	mkfifo(Fifo_Server,0666);
 	char Msg[100];
-	strcpy(Msg,"");
+	//strcpy(Msg,"");
 	int PID = fork();
 	while (1)
 	{

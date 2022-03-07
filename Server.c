@@ -22,15 +22,12 @@ int main(int argc, char const *argv[])
 
 		FD = open(Fifo_Server,O_RDONLY);
 		read(FD,Msg,sizeof(Msg));
-		switch (Msg)
-		{ 
-			case "EXIT":
+		printf("Message:\n %s\n",Msg);
+		//strcpy(Msg,"");
+		close(FD);
+		if(strcmp(Msg, "EXIT") == 0)
+		{
 			printf("Abort process");
-			break;
-			default:
-			printf("Message:\n %s\n",Msg);
-			//strcpy(Msg,"");
-			close(FD);
 			break;
 		}
 	}

@@ -32,7 +32,7 @@ int main(int argc, char const *argv[])
 			wait(0);
 			FD = fopen(Fifo_Server,"r");
 			printf("C\n");
-			//fgets(Msg,100,FD);
+			fgets(Msg,100,FD);
 			//ret=fscanf(FD,"%d",&value);
 			//printf("This is the parent. Received value %d from child on fifo \n", value);
 			value = read(FD,&Msg,sizeof(Msg));

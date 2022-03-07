@@ -15,8 +15,6 @@ int main(int argc, char const *argv[])
 	while (1)
 	{
 		if(PID == 0){
-			sleep(1);
-			wait(NULL);
 		FD = open(Fifo_Server,O_WRONLY);
 		fgets(Msg,100,stdin);
 		write(FD,Msg,strlen(Msg)+1);
@@ -24,6 +22,8 @@ int main(int argc, char const *argv[])
 		close(FD);}
 
 		else{
+			sleep(1);
+			wait(NULL);
 			printf("C");
 			FD = open(Fifo_Server,O_RDONLY);
 			read(FD,Msg,sizeof(Msg));

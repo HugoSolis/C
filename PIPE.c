@@ -23,7 +23,8 @@ int main(int argc, char const *argv[])
 		write(FD,Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
 		close(FD);
-		exit(0);}
+		exit(0);
+		printf("Message F:\n %s\n",Msg);}
 
 		else{
 			sleep(1);

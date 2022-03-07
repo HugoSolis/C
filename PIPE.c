@@ -29,7 +29,7 @@ int main(int argc, char const *argv[])
 
 		else{
 			sleep(1);
-			wait(0);
+			wait(NULL);
 			FD = fopen(Fifo_Server,"r");
 			printf("C\n");
 			fgets(Msg,100,FD);

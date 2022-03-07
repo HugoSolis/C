@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 	{
 		if(PID == 0){
 			printf("F\n");
-		FDW = open(Fifo_Server,O_WRONLY);
+		FDW = fopen(Fifo_Server,"w");
 		fgets(Msg,100,stdin);
 		write(FDW,&Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
@@ -29,7 +29,7 @@ int main(int argc, char const *argv[])
 		else{
 			sleep(1);
 			wait(0);
-			FDR = open(Fifo_Server,O_RDONLY|O_NONBLOCK);
+			FDR = fopen(Fifo_Server,"r");
 			printf("C\n");
 			//fgets(Msg,100,FD);
 			//ret=fscanf(FD,"%d",&value);

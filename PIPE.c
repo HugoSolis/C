@@ -37,7 +37,7 @@ int main(int argc, char const *argv[])
 			//printf("This is the parent. Received value %d from child on fifo \n", value);
 			value = read(FDR,&Msg,sizeof(Msg));
 			printf("%i",value);
-			printf("Message:\n %s\n",Msg);
+			fprintf("Message:\n %s\n",Msg);
 			//strcpy(Msg,"");
 			close(FDR);
 			if(strncmp(Msg, "EXIT",4) == 0)

@@ -30,6 +30,8 @@ int main(int argc, char const *argv[])
 			printf("Abort process");
 			break;
 		}
+		else
+			printf("My")
 	}
 	return 0;
 }

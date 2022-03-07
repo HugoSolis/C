@@ -23,7 +23,8 @@ int main(int argc, char const *argv[])
 		fgets(Msg,100,stdin);
 		write(FD,Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
-		fclose(FD);		
+		fclose(FD);
+		unlink(FD);		
 		exit(0);}
 
 		else{
@@ -38,7 +39,7 @@ int main(int argc, char const *argv[])
 			printf("%i",value);
 			printf("Message:\n %s\n",Msg);
 			//strcpy(Msg,"");
-			close(FD);
+			fclose(FD);
 			if(strncmp(Msg, "EXIT",4) == 0)
 			{
 				printf("Abort process\n");

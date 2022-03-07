@@ -19,14 +19,17 @@ int main(int argc, char const *argv[])
 		write(FD,Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
 		close(FD);
-		strcpy(Msg,"");
 
 		FD = open(Fifo_Server,O_RDONLY);
 		read(FD,Msg,sizeof(Msg));
 		printf("Message:\n %s\n",Msg);
 		//strcpy(Msg,"");
 		close(FD);
-		strcpy(Msg,"");
+		if(Msg == "EXIT")
+		{
+			printf("Abort process");
+			break;
+		}
 	}
 	return 0;
 }

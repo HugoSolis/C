@@ -35,8 +35,8 @@ int main(int argc, char const *argv[])
     		{
     		  printf("Child received: item %d\n", Msg);
     		}
-			//read(FD,Msg,sizeof(Msg));
-			//printf("Message:\n %s\n",Msg);
+			read(FD,Msg,sizeof(Msg));
+			printf("Message:\n %s\n",Msg);
 			//strcpy(Msg,"");
 			close(FD);
 			if(strncmp(Msg, "EXIT",4) == 0)

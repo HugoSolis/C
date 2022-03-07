@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
 		else{
 			sleep(1);
 			wait(0);
-			FD = fopen(Fifo_Server,O_RONLY);
+			FD = fopen(Fifo_Server,O_RDONLY);
 			printf("C\n");
 			//fgets(Msg,100,FD);
 			//ret=fscanf(FD,"%d",&value);

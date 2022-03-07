@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
 {
 	printf("Starting server\n");
 	int FD;
-	char * Fifo_Server = "/pipes/server_pipe";
+	char * Fifo_Server = "server_pipe";
 	mkfifo(Fifo_Server,0666);
 	char Msg[100];
 	//strcpy(Msg,"");
@@ -22,7 +22,8 @@ int main(int argc, char const *argv[])
 		FD = open(Fifo_Server,O_WRONLY);
 		fgets(Msg,100,stdin);
 		write(FD,Msg,strlen(Msg)+1);
-		//strcpy(Msg,"");		
+		//strcpy(Msg,"");
+		close(FD);		
 		exit(0);}
 
 		else{
@@ -33,7 +34,7 @@ int main(int argc, char const *argv[])
 			//fgets(Msg,100,FD);
 			//ret=fscanf(FD,"%d",&value);
 			//printf("This is the parent. Received value %d from child on fifo \n", value);
-			value = read(FD,&Msg,sizeof(Msg));
+			value = read(FD,Msg,sizeof(Msg));
 			printf("%i",value);
 			printf("Message:\n %s\n",Msg);
 			//strcpy(Msg,"");

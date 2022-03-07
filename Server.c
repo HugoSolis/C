@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
 			break;
 		}
 		else
-			printf("My")
+			printf("My");
 	}
 	return 0;
 }

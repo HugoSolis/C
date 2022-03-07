@@ -40,7 +40,7 @@ int main(int argc, char const *argv[])
 				printf("Abort process\n");
 				break;
 			}
-		}
+		exit(0);}
 	}
 	return 0;
 }

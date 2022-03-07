@@ -19,24 +19,24 @@ int main(int argc, char const *argv[])
 	{
 		if(PID == 0){
 			printf("F\n");
-		FD = fopen(Fifo_Server,O_WRONLY);
+		FD = open(Fifo_Server,O_WRONLY);
 		fgets(Msg,100,stdin);
 		write(FD,Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
-		fprintf("Message:\n %s\n",Msg);
-		fclose(FD);
+		printf("Message:\n %s\n",Msg);
+		close(FD);
 		exit(0);}
 
 		else{
 			sleep(1);
 			wait(NULL);
 			printf("C\n");
-			FD = fopen(Fifo_Server,O_RDONLY);
+			FD = open(Fifo_Server,O_RDONLY);
 			//fgets(Msg,100,FD);
 			//ret=fscanf(FD,"%d",&value);
 			//printf("This is the parent. Received value %d from child on fifo \n", value);
 			read(FD,Msg,sizeof(Msg));
-			fprintf("Message:\n %s\n",Msg);
+			printf("Message:\n %s\n",Msg);
 			//strcpy(Msg,"");
 			close(FD);
 			if(strncmp(Msg, "EXIT",4) == 0)

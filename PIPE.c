@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
 {
 	printf("Starting server\n");
 	int FDW,FDR;
-	char * Fifo_Server = "/pipes/server_pipe";
+	char * Fifo_Server = "server_pipe";
 	mkfifo(Fifo_Server,0666);
 	char Msg[100];
 	//strcpy(Msg,"");

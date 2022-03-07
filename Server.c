@@ -23,7 +23,7 @@ int main(int argc, char const *argv[])
 		FD = open(Fifo_Server,O_RDONLY);
 		read(FD,Msg,sizeof(Msg));
 		printf("Message:\n %s\n",Msg);
-		Msg = "";
+		strcpy(Msg,"");
 		close(FD);
 	}
 	return 0;

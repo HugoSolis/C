@@ -8,11 +8,10 @@ int main(int argc, char const *argv[])
 {
 	printf("Starting server\n");
 	int FD;
-	fork();
 	char * Fifo_Server = "/pipes/server_pipe";
 	mkfifo(Fifo_Server,0666);
 	char Msg[100];
-
+	fork();
 	while (1)
 	{
 		if(fork() == 1){

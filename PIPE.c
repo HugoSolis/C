@@ -24,8 +24,6 @@ int main(int argc, char const *argv[])
 		close(FD);}
 
 		else{
-			sleep(1);
-			wait(NULL);
 			printf("C");
 			FD = open(Fifo_Server,O_RDONLY);
 			read(FD,Msg,sizeof(Msg));

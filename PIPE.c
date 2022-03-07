@@ -22,9 +22,9 @@ int main(int argc, char const *argv[])
 		fgets(Msg,100,stdin);
 		write(FD,Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
+		printf("Message:\n %s\n",Msg);
 		close(FD);
-		exit(0);
-		printf("Message F:\n %s\n",Msg);}
+		exit(0);}
 
 		else{
 			sleep(1);

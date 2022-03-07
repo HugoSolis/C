@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 	{
 		if(PID == 0){
 			printf("F\n");
-		FD = fopen(Fifo_Server,O_WRONLY);
+		FD = open(Fifo_Server,O_WRONLY);
 		fgets(Msg,100,stdin);
 		write(FD,Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
 		else{
 			sleep(1);
 			wait(0);
-			FD = fopen(Fifo_Server,O_RDONLY);
+			FD = open(Fifo_Server,O_RDONLY);
 			printf("C\n");
 			//fgets(Msg,100,FD);
 			//ret=fscanf(FD,"%d",&value);

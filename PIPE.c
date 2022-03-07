@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 	{
 		if(PID == 0){
 			printf("F\n");
-		FD = fopen(Fifo_Server,O_WRONLY);
+		FD = fopen(Fifo_Server,"w");
 		fgets(Msg,100,stdin);
 		write(FD,Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
@@ -31,7 +31,7 @@ int main(int argc, char const *argv[])
 			sleep(1);
 			wait(NULL);
 			printf("C\n");
-			FD = fopen(Fifo_Server,O_RDONLY);
+			FD = fopen(Fifo_Server,"r");
 			//fgets(Msg,100,FD);
 			//ret=fscanf(FD,"%d",&value);
 			//printf("This is the parent. Received value %d from child on fifo \n", value);

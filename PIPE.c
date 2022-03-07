@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 	int PID = fork();
 	while (1)
 	{
-		if(PID == 1){
+		if(PID == 0){
 			sleep(1);
 			wait(NULL);
 		FD = open(Fifo_Server,O_WRONLY);

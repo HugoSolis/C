@@ -23,7 +23,8 @@ int main(int argc, char const *argv[])
 		fgets(Msg,100,stdin);
 		write(FD,Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
-		close(FD);		exit(0);}
+		close(FD);		
+		exit(0);}
 
 		else{
 			sleep(1);
@@ -33,7 +34,7 @@ int main(int argc, char const *argv[])
 			//fgets(Msg,100,FD);
 			//ret=fscanf(FD,"%d",&value);
 			//printf("This is the parent. Received value %d from child on fifo \n", value);
-			value = read(FD,Msg,sizeof(Msg));
+			value = read(FD,&Msg,sizeof(Msg));
 			printf("%i",value);
 			printf("Message:\n %s\n",Msg);
 			//strcpy(Msg,"");

@@ -24,7 +24,7 @@ int main(int argc, char const *argv[])
 		write(FD,Msg,strlen(Msg)+1);
 		//strcpy(Msg,"");
 		close(FD);
-		unlink(FD);
+		//unlink(FD);
 		exit(0);}
 
 		else{
